@@ -7,6 +7,10 @@ doctors' outlines, and measures every plan from its 3D dose: coverage,
 conformity, dose fall-off, dose to the cochlea, the biological effect of
 one large dose, and what small positioning errors would have changed.
 
+**See it:** https://letsapatiiso07.github.io/Radiosurgery-Dose-Explorer/ shows five
+patients' MRI with the tumour, cochlea and dose lines, their dose-volume
+histograms and plan numbers.
+
 **How this was built:** I wrote this with Claude, Anthropic's AI assistant,
 as a learning project. Claude wrote the first version of the code, tests and
 this README. Every number below comes from running that code. Not for
