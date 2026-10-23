@@ -1,0 +1,6 @@
+numpy>=2.0
+scipy>=1.13
+matplotlib>=3.8
+pydicom>=3.0
+idc-index>=0.13
+pytest>=8

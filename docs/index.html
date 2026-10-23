@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Radiosurgery Dose Explorer</title>
+    <meta name="description" content="Gamma Knife radiosurgery plans for vestibular schwannoma on real MRI: tumour and cochlea outlines, isodose lines, dose-volume histograms and plan measures." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Radiosurgery Dose Explorer</h1>
+      <p>Real Gamma Knife treatments for vestibular schwannoma, a benign tumour on the nerve between
+      the inner ear and the brainstem. Each image is the planning MRI with the tumour
+      <span class="key red">red</span>, the cochlea <span class="key cyan">cyan</span>, the prescription dose
+      <span class="key yellow">yellow</span> and half of it <span class="key blue">blue</span>.</p>
+      <p class="note">Anonymised data from the Vestibular-Schwannoma-SEG collection (CC BY 4.0). A learning
+      project: not for clinical use.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="controls">
+          <label>Patient <select id="patient"></select></label>
+          <span id="slice-label" class="muted"></span>
+        </div>
+        <img id="slice" alt="MRI slice with outlines and isodose lines" />
+        <input id="slider" type="range" min="0" max="0" value="0" aria-label="Slice" />
+        <p class="hint">Drag the slider or use the arrow keys to move through the head, 2 mm per step.</p>
+      </section>
+
+      <section class="panel">
+        <h2>This plan</h2>
+        <dl id="facts" class="facts"></dl>
+        <h2>Dose-volume histogram</h2>
+        <canvas id="dvh" aria-label="Dose-volume histogram"></canvas>
+        <p class="hint">Share of each structure receiving at least a given dose.</p>
+      </section>
+    </main>
+
+    <footer>
+      Results across 59 patients, and how every number is calculated, are in the project README.
+    </footer>
+    <script src="viewer.js"></script>
+  </body>
+</html>
