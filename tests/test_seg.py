@@ -99,3 +99,17 @@ def test_keep_largest_and_candidates():
     prob[20:26, 20:26, 20:26] = 0.6  # larger: more summed probability
     best = candidates(prob)[0]
     assert [s.start for s in best] == [20, 20, 20]
+
+
+def test_ai_probability_becomes_outlines_with_the_same_volume():
+    from radiosurgery.seg.plans import ai_contours
+    axes = [np.arange(30) * 1.5, np.arange(80) * 0.5, np.arange(80) * 0.5]
+    Z, Y, X = np.meshgrid(*axes, indexing="ij")
+    r = np.sqrt((Z - 22) ** 2 + (Y - 20) ** 2 + (X - 20) ** 2)
+    prob = np.clip(8 - r, 0, 1).astype(np.float32)  # a ball of radius 7.5 mm at probability 0.5
+    box = (slice(0, 30), slice(0, 80), slice(0, 80))
+    contours = ai_contours(prob, box, axes, 0.5, largest=True)
+    g = geometry(*axes)
+    v = volume_cc(rasterise(contours, g), g)
+    assert v == pytest.approx(((prob >= 0.5).sum()) * 1.5 * 0.25 / 1000, rel=0.03)
+    assert all(abs(z / 1.5 - round(z / 1.5)) < 1e-6 for z, _ in contours)  # on the MRI's own slices

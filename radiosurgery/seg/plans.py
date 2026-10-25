@@ -5,8 +5,9 @@
 For each test patient in the dose analysis, the AI's tumour probability is
 turned into outlines, slice by slice, the way a doctor's outline is stored.
 Both outlines then go through the same steps on the same dose grid
-(masks.rasterise, then metrics.plan_quality), so any change in coverage,
-conformity or gradient index comes from the outline alone.
+(masks.rasterise, then metrics.plan_quality), so any change in coverage or
+conformity comes from the outline alone. The gradient index depends on the
+dose only, so it cannot change; it is kept as a check.
 
 The doctors' outline here is the one drawn on T1, the image the AI reads.
 The dose is the copy registered to T1 where it passes the sanity check of

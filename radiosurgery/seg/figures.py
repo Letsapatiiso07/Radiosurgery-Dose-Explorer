@@ -102,8 +102,8 @@ def agreement(test):
 def plan_scores(plans):
     rows = [r for r in plans["per_patient"] if not r.get("ai_missed")]
     fig, axes = plt.subplots(1, 3, figsize=(12, 4))
-    for ax, key, label, scale in zip(axes, ["coverage", "paddick_ci", "gradient_index"],
-                                     ["Coverage (%)", "Paddick conformity index", "Gradient index"], [100, 1, 1]):
+    for ax, key, label, scale in zip(axes, ["tumour_cc", "coverage", "paddick_ci"],
+                                     ["Tumour volume (cc)", "Coverage (%)", "Paddick conformity index"], [1, 100, 1]):
         d = np.array([r[f"doctor_{key}"] for r in rows]) * scale
         a = np.array([r[f"ai_{key}"] for r in rows]) * scale
         lo, hi = min(d.min(), a.min()), max(d.max(), a.max())
