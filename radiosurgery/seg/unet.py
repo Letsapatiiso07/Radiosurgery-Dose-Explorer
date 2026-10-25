@@ -24,11 +24,13 @@ class UNet(nn.Module):
     """One input channel (the MRI), one output channel (tumour logit).
 
     channels[i] features at level i; kernels[i] the convolution size there;
-    pools[i] the downsampling factor from level i to i + 1.
+    pools[i] the downsampling factor from level i to i + 1. head_bias sets
+    the starting output: a negative value makes the untrained model call
+    every voxel unlikely to be tumour, which suits a target this rare.
     """
 
     def __init__(self, channels=(16, 32, 64, 128), kernels=((1, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3)),
-                 pools=((1, 2, 2), (2, 2, 2), (2, 2, 2))):
+                 pools=((1, 2, 2), (2, 2, 2), (2, 2, 2)), head_bias=None):
         super().__init__()
         assert len(channels) == len(kernels) == len(pools) + 1
         self.pools = pools
@@ -41,6 +43,8 @@ class UNet(nn.Module):
         self.up = nn.ModuleList(nn.ConvTranspose3d(channels[i + 1], channels[i], p, p) for i, p in enumerate(pools))
         self.dec = nn.ModuleList(Block(2 * channels[i], channels[i], kernels[i]) for i in range(len(pools)))
         self.head = nn.Conv3d(channels[0], 1, 1)
+        if head_bias is not None:
+            nn.init.constant_(self.head.bias, head_bias)
 
     @property
     def divisor(self):

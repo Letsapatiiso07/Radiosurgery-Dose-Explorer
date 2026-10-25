@@ -38,8 +38,8 @@ SEED = 2026
 
 STAGES = {
     "coarse": dict(channels=(8, 16, 32, 64), kernels=((3, 3, 3),) * 4, pools=((2, 2, 2),) * 3,
-                   patch=(48, 80, 80), batch=2, steps=3000, lr=1e-3, p_tumour=0.5, p_near=0.0, near_mm=0,
-                   val_every=500),
+                   patch=(48, 80, 80), batch=2, steps=3000, lr=1e-3, p_tumour=0.67, p_near=0.0, near_mm=0,
+                   val_every=500, head_bias=-5.0),
     "fine": dict(channels=(16, 32, 64, 128), kernels=((1, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3)),
                  pools=((1, 2, 2), (2, 2, 2), (2, 2, 2)), patch=(24, 112, 112), batch=2, steps=12000, lr=1e-3,
                  p_tumour=0.6, p_near=0.25, near_mm=30, val_every=500),
@@ -48,7 +48,7 @@ STAGES = {
 
 def build(stage):
     c = STAGES[stage]
-    return UNet(c["channels"], c["kernels"], c["pools"])
+    return UNet(c["channels"], c["kernels"], c["pools"], c.get("head_bias"))
 
 
 class Patches:

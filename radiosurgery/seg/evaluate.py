@@ -73,6 +73,20 @@ def truth(patient):
     return frac >= 0.5, float(np.prod(m["native_spacing"])) / 1000
 
 
+def t2_outline_on_t1(patient):
+    """The doctors' other outline of the same tumour, drawn on the T2 MRI, on the T1 grid: a human reference."""
+    import pydicom
+    from ..dicomrt import read_structures, referenced_series
+    m = data.meta(patient)
+    for f in sorted((data.RAW / patient).glob("RTSTRUCT_*/*.dcm")):
+        ds = pydicom.dcmread(f)
+        if referenced_series(ds) != m["series_uid"]:
+            contours = read_structures(ds).get(m["tumour_name"])
+            if contours:
+                return rasterise(contours, data.geometry(*data.axes_of(m, "native"))) >= 0.5
+    return None
+
+
 def load_models(coarse="best", fine="best"):
     models = []
     for stage, which in [("coarse", coarse), ("fine", fine)]:
@@ -162,14 +176,17 @@ def test():
                             box=np.array([[b.start, b.stop] for b in box]))
         true, cc = truth(p)
         pred = ai_mask(prob, box, true.shape, chosen["threshold"], chosen["largest_only"])
+        t2 = t2_outline_on_t1(p)
         rows.append({"patient": p, "tumour_name": m["tumour_name"],
-                     **score(pred, true, m["native_spacing"], cc)})
+                     **score(pred, true, m["native_spacing"], cc),
+                     "doctor_t2_vs_t1_dice": None if t2 is None else dice(t2, true)})
         print(json.dumps(rows[-1]), flush=True)
     d = np.array([r["dice"] for r in rows])
     found = [r for r in rows if r["found"]]
     h = np.array([r["hd95_mm"] for r in found])
     ai, doc = np.array([r["ai_cc"] for r in rows]), np.array([r["doctor_cc"] for r in rows])
     k = len(found)
+    ref = np.array([r["doctor_t2_vs_t1_dice"] for r in rows if r["doctor_t2_vs_t1_dice"] is not None])
     summary = {
         "settings": chosen, "patients": len(rows), "missing": missing,
         "dice": {"mean": float(d.mean()), "mean_ci": interval(d), "sd": float(d.std(ddof=1)),
@@ -180,6 +197,8 @@ def test():
                       "relative_error_pct_median": float(np.median(100 * (ai - doc) / doc)),
                       "relative_error_pct_ci": interval(100 * (ai - doc) / doc, np.median)},
         "found": {"n": k, "of": len(rows), "ci": list(stats.clopper_pearson(k, len(rows)))},
+        "doctor_t2_vs_t1_dice": {"mean": float(np.mean(ref)), "mean_ci": interval(ref), "median": float(np.median(ref)),
+                                 "n": len(ref)},
         "per_patient": rows,
     }
     (RESULTS / "segmentation_test.json").write_text(json.dumps(summary, indent=1))

@@ -3,7 +3,9 @@
     python -m radiosurgery.cochlea_ml     # every patient with a cochlea outline, a few minutes
 
 Every patient in the collection whose plan passes the sanity check of
-dicomrt.load and whose cochlea was outlined gives one row. The features come
+dicomrt.load and whose cochlea was outlined gives one row. Plans prescribed
+outside 10 to 15 Gy are left out: one plan prescribes 100 Gy, which is not a
+schwannoma dose. The features come
 only from the doctors' outlines and the prescribed dose, all known before
 planning starts; nothing is read from the dose grid or the plan's shots.
 
@@ -52,6 +54,7 @@ from .seg.data import geometry
 RAW = Path("data") / "raw"
 OUT = Path("results")
 LIMIT_GY = 4.0
+RX_RANGE = (10, 15)  # Gy; one plan in the collection prescribes 100 Gy, not a schwannoma dose
 FOLDS, REPEATS, SEED = 5, 10, 2026
 FEATURES = ["tumour_cc", "cochlea_cc", "gap_mm", "centroid_mm", "tumour_within_5mm_cc", "tumour_within_10mm_cc",
             "prescription_gy"]
@@ -104,6 +107,8 @@ def patient_row(patient, t1_series=None):
             tr, copy = load(RAW / patient), "T2 (T1 copy unsound)"
         except LookupError as error:
             return None, str(error)
+    if not RX_RANGE[0] <= tr.plan.prescription_gy <= RX_RANGE[1]:
+        return None, f"{patient}: prescribed {tr.plan.prescription_gy:g} Gy, outside the {RX_RANGE[0]}-{RX_RANGE[1]} Gy used for schwannomas"
     feats = treatment_features(tr)
     if feats is None:
         return None, f"{patient}: no schwannoma and cochlea outlines"
@@ -199,31 +204,36 @@ def cross_validate(rows):
     return out, {k: v.mean(0) for k, v in preds.items()}, gy
 
 
+def effects(rows):
+    """Ridge fitted on every patient: % change in cochlea dose per standard deviation of each (log) feature."""
+    X, y, _ = design(rows)
+    m = models()["ridge"]().fit(X, y)
+    coef = m.best_estimator_.named_steps["ridge"].coef_
+    return {k: float(100 * (np.exp(c) - 1)) for k, c in zip(FEATURES, coef)}
+
+
 def classify(rows):
     """Will the mean cochlea dose reach 4 Gy? AUC of a logistic model and boosting, against the gap alone."""
     X, y, rx = design(rows)
     at_risk = (np.exp(y) * rx >= LIMIT_GY).astype(int)
-    scores = {"gap only": [], "logistic": [], "gradient boosting": []}
-    avg = {k: np.zeros(len(y)) for k in scores}
+    names = ["gap only", "logistic", "gradient boosting"]
+    pred = {k: np.zeros((REPEATS, len(y))) for k in names}
     cv = RepeatedStratifiedKFold(n_splits=FOLDS, n_repeats=REPEATS, random_state=SEED)
-    fold_pred = {k: np.zeros(len(y)) for k in scores}
     for i, (train, test) in enumerate(cv.split(X, at_risk)):
+        rep = i // FOLDS
         logit = GridSearchCV(make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000)),
                              {"logisticregression__C": [0.1, 1, 10]}, cv=5, scoring="roc_auc").fit(log_volumes(X[train]), at_risk[train])
         gb = GridSearchCV(GradientBoostingClassifier(subsample=0.8, random_state=SEED),
                           {"n_estimators": [100, 300], "max_depth": [2, 3], "learning_rate": [0.03, 0.1]},
                           cv=5, scoring="roc_auc").fit(X[train], at_risk[train])
-        fold_pred["gap only"][test] = -X[test, FEATURES.index("gap_mm")]
-        fold_pred["logistic"][test] = logit.predict_proba(log_volumes(X[test]))[:, 1]
-        fold_pred["gradient boosting"][test] = gb.predict_proba(X[test])[:, 1]
-        if (i + 1) % FOLDS == 0:  # one full repeat done
-            for k in scores:
-                scores[k].append(roc_auc_score(at_risk, fold_pred[k]))
-                avg[k] += sstats.rankdata(fold_pred[k]) / REPEATS
+        pred["gap only"][rep, test] = -X[test, FEATURES.index("gap_mm")]
+        pred["logistic"][rep, test] = logit.predict_proba(log_volumes(X[test]))[:, 1]
+        pred["gradient boosting"][rep, test] = gb.predict_proba(X[test])[:, 1]
     out = {"at_risk": int(at_risk.sum()), "of": int(len(at_risk))}
-    for k in scores:
-        ok = lambda i: roc_auc_score(at_risk[i], avg[k][i]) if 0 < at_risk[i].sum() < len(i) else np.nan
-        out[k] = {"auc": float(np.mean(scores[k])), "auc_ci": list(stats.bootstrap(ok, len(y)))}
+    for k in names:
+        auc = lambda i: (np.mean([roc_auc_score(at_risk[i], p[i]) for p in pred[k]])
+                         if 0 < at_risk[i].sum() < len(i) else np.nan)
+        out[k] = {"auc": float(auc(np.arange(len(y)))), "auc_ci": list(stats.bootstrap(auc, len(y), n_boot=2000))}
     return out
 
 
@@ -231,7 +241,7 @@ def chart(oof, gy, rows, cv):
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6))
     lim = max(gy.max(), max(v.max() for v in oof.values())) * 1.08
     for ax, name, color in zip(axes, ["baseline (gap only)", min((k for k in cv if k != "baseline (gap only)"), key=lambda k: cv[k]["mae_gy"])],
-                               ["#64748b", "#7c3aed"]):
+                               ["#0d9488", "#7c3aed"]):
         ax.scatter(gy, oof[name], s=18, color=color, alpha=0.8)
         ax.plot([0, lim], [0, lim], color="#9ca3af", ls="--", lw=1)
         ax.axhline(LIMIT_GY, color="#dc2626", ls=":", lw=1)
@@ -261,6 +271,7 @@ def main():
            "copies": {c: sum(r["copy"] == c for r in rows) for c in sorted({r["copy"] for r in rows})},
            "prescriptions": {f"{v:g} Gy": sum(r["prescription_gy"] == v for r in rows) for v in sorted({r["prescription_gy"] for r in rows})},
            "cochlea_mean_gy": stats.summary(gy), "distance_fit_all": fit, "regression": cv, "classifier_4gy": cls,
+           "ridge_percent_per_sd": effects(rows),
            "per_patient": [{**r, **{f"pred_{k}": float(v[i]) for k, v in oof.items()}} for i, r in enumerate(rows)]}
     OUT.mkdir(exist_ok=True)
     (OUT / "cochlea_ml.json").write_text(json.dumps(out, indent=1))
