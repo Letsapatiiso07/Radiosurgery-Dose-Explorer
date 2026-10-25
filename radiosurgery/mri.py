@@ -1,4 +1,7 @@
-"""The planning MRI, for pictures. Every analysis number comes from the dose grid."""
+"""The planning MRI: for pictures, and as the input of the tumour outlining model.
+
+Every dose analysis number comes from the dose grid.
+"""
 
 from pathlib import Path
 
@@ -6,8 +9,12 @@ import numpy as np
 import pydicom
 
 
-def load_t1(patient_dir):
-    """Axial T1 slices sorted by height: (volume [z, y, x], x, y, z) in mm."""
+def load_t1(patient_dir, with_uid=False):
+    """Axial T1 slices sorted by height: (volume [z, y, x], x, y, z) in mm.
+
+    With `with_uid`, the series' unique identifier is returned as well, to
+    find the structure set drawn on this MRI.
+    """
     for series in sorted(Path(patient_dir).glob("MR_*")):
         files = [pydicom.dcmread(f) for f in series.glob("*.dcm")]
         if not files or not str(files[0].SeriesDescription).lower().startswith("t1"):
@@ -22,5 +29,5 @@ def load_t1(patient_dir):
         x = float(first.ImagePositionPatient[0]) + np.arange(first.Columns) * col
         y = float(first.ImagePositionPatient[1]) + np.arange(first.Rows) * row
         z = np.array([float(f.ImagePositionPatient[2]) for f in files])
-        return vol, x, y, z
+        return (vol, x, y, z, str(first.SeriesInstanceUID)) if with_uid else (vol, x, y, z)
     return None

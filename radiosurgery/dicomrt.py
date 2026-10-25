@@ -98,7 +98,13 @@ def read_structures(ds):
     return out
 
 
-def load(patient_dir, tolerance=0.05):
+def referenced_series(struct_ds):
+    """The MRI series a structure set was drawn on."""
+    frame = struct_ds.ReferencedFrameOfReferenceSequence[0]
+    return frame.RTReferencedStudySequence[0].RTReferencedSeriesSequence[0].SeriesInstanceUID
+
+
+def load(patient_dir, tolerance=0.05, on_series=None):
     """The consistent plan, structure set and dose that pass a sanity check.
 
     Some patient folders hold extra copies, and not all of them are sound:
@@ -107,6 +113,9 @@ def load(patient_dir, tolerance=0.05):
     percentage of the maximum dose, so prescription / maximum dose must equal
     that percentage. A copy is accepted only if it agrees within
     `tolerance`. Rejected copies are listed in Treatment.notes.
+
+    With `on_series`, only a copy whose structure set was drawn on that MRI
+    series is accepted.
     """
     patient_dir = Path(patient_dir)
     read = lambda kind: [pydicom.dcmread(f) for f in sorted(patient_dir.glob(f"{kind}_*/*.dcm"))]
@@ -124,6 +133,9 @@ def load(patient_dir, tolerance=0.05):
         struct = structs.get(plan_ds.ReferencedStructureSetSequence[0].ReferencedSOPInstanceUID)
         if struct is None:
             notes.append("plan refers to a structure set that is not present")
+            continue
+        if on_series and referenced_series(struct) != on_series:
+            notes.append("structure set drawn on another MRI series")
             continue
         plan, dose = read_plan(plan_ds), read_dose(d)
         if plan.isodose_percent:
@@ -145,3 +157,11 @@ def find(structures, *keywords, exclude=()):
         if any(k in low for k in keywords) and not any(x in low for x in exclude):
             return name
     return None
+
+
+def tumour_name(structures, plan_target=""):
+    """The tumour outline: the structure the plan prescribes to, else one named like a target."""
+    for name in structures:
+        if name.lower() == plan_target.lower():
+            return name
+    return find(structures, "tv", "an", exclude=("cochlea",))

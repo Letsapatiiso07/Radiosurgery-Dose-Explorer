@@ -5,3 +5,7 @@ __pycache__/
 venv/
 # Patient data (1.7 GB): python -m radiosurgery.download fetches it again
 data/raw/
+# Preprocessed MRI for the models (about 15 GB): python -m radiosurgery.seg.data
+data/cache/
+# Model weights and logs: python -m radiosurgery.seg.train coarse / fine
+models/

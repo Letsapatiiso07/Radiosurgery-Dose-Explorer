@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from radiosurgery import stats
-from radiosurgery.dicomrt import DoseGrid, find, load
+from radiosurgery.dicomrt import DoseGrid, find, load, tumour_name
 from radiosurgery.masks import rasterise
 from radiosurgery.metrics import dice, dvh, gap_mm, organ_dose, plan_quality
 from radiosurgery.mri import load_t1
@@ -39,10 +39,7 @@ def save(fig, name):
 
 
 def target_name(treatment, plan_target):
-    for name in treatment.structures:
-        if name.lower() == plan_target.lower():
-            return name
-    return find(treatment.structures, "tv", "an", exclude=("cochlea",))
+    return tumour_name(treatment.structures, plan_target)
 
 
 def analyse(patient):
@@ -232,9 +229,19 @@ def chart_radiobiology():
     save(fig, "radiobiology.png")
 
 
+def ai_results():
+    """The AI tumour outlines and their scores for the viewer patients, if the models have been run."""
+    read = lambda path: json.loads(path.read_text()) if path.exists() else {}
+    outlines = read(DOCS / "ai_outlines.json")
+    seg = {r["patient"]: r for r in read(OUT / "segmentation_test.json").get("per_patient", [])}
+    plans = {r["patient"]: r for r in read(OUT / "segmentation_plans.json").get("per_patient", [])}
+    return outlines, seg, plans
+
+
 def export_viewer(cases):
     """Slice images with outlines and isodose lines, plus numbers, for docs/."""
     (DOCS / "img").mkdir(parents=True, exist_ok=True)
+    ai_outlines, ai_seg, ai_plans = ai_results()
     index = []
     for case in cases:
         row, tr, target, cochlea, tname, cname = case
@@ -265,6 +272,10 @@ def export_viewer(cases):
                     for zz, xy in tr.structures[name]:
                         if abs(zz - z) <= 0.75:
                             ax.plot(*np.vstack([xy, xy[:1]]).T, color=color, lw=1.5)
+            for zz, xy in ai_outlines.get(row["patient"], []):
+                if abs(zz - z) <= 0.75:
+                    xy = np.array(xy)
+                    ax.plot(*np.vstack([xy, xy[:1]]).T, color="#d946ef", lw=1.5, ls=(0, (4, 2)))
             ax.set_xlim(cx - 30, cx + 30)
             ax.set_ylim(cy + 30, cy - 30)
             ax.axis("off")
@@ -274,7 +285,13 @@ def export_viewer(cases):
             files.append({"file": f"img/{name}", "z_mm": round(float(z), 1)})
         keep = ["patient", "prescription_gy", "tumour_cc", "coverage", "paddick_ci", "gradient_index",
                 "shots", "beam_on_min", "cochlea_mean_gy", "cochlea_max_gy", "gap_mm", "max_gy"]
-        index.append({**{k: row.get(k) for k in keep}, "slices": files, "dvh": row["_dvh"]})
+        entry = {**{k: row.get(k) for k in keep}, "slices": files, "dvh": row["_dvh"]}
+        if row["patient"] in ai_seg and row["patient"] in ai_plans:
+            entry["ai"] = {"dice": ai_seg[row["patient"]]["dice"], "tumour_cc": ai_plans[row["patient"]].get("ai_tumour_cc"),
+                           "doctor_t1_cc": ai_plans[row["patient"]].get("doctor_tumour_cc"),
+                           "coverage": ai_plans[row["patient"]].get("ai_coverage"),
+                           "doctor_t1_coverage": ai_plans[row["patient"]].get("doctor_coverage")}
+        index.append(entry)
     (DOCS / "data.json").write_text(json.dumps(index))
     print(f"  saved {len(index)} patients to {DOCS / 'data.json'}")
 
