@@ -1,0 +1,1069 @@
+{
+ "patients": 59,
+ "ai_missed": [],
+ "dose_copies": {
+  "T1": 57,
+  "T2 (T1 copy unsound)": 2
+ },
+ "tumour_cc": {
+  "doctor": {
+   "median": 2.082875,
+   "q1": 0.82303125,
+   "q3": 3.4868750000000004,
+   "min": 0.0694375,
+   "max": 7.3664375,
+   "n": 59
+  },
+  "ai": {
+   "median": 2.053375,
+   "q1": 0.84575,
+   "q3": 3.5602187499999998,
+   "min": 0.08675000000000001,
+   "max": 7.0223125,
+   "n": 59
+  },
+  "difference_median": 0.025062499999999988,
+  "difference_median_ci": [
+   0.005249999999999977,
+   0.05525000000000002
+  ],
+  "difference_q1_q3": [
+   -0.03490625000000003,
+   0.11896875000000001
+  ],
+  "bland_altman": {
+   "bias": 0.030999999999999923,
+   "bias_ci": [
+    -0.01571649684703303,
+    0.07771649684703288
+   ],
+   "limits": [
+    -0.3203577709891768,
+    0.3823577709891766
+   ],
+   "n": 59
+  },
+  "worst": [
+   {
+    "patient": "VS-SEG-193",
+    "doctor": 4.28975,
+    "ai": 3.7526875
+   },
+   {
+    "patient": "VS-SEG-026",
+    "doctor": 2.177375,
+    "ai": 2.6605625
+   },
+   {
+    "patient": "VS-SEG-135",
+    "doctor": 1.057125,
+    "ai": 1.516375
+   }
+  ]
+ },
+ "coverage": {
+  "doctor": {
+   "median": 0.9222442317886336,
+   "q1": 0.9091523000685654,
+   "q3": 0.932065831120384,
+   "min": 0.8094965675057209,
+   "max": 0.9500545381479992,
+   "n": 59
+  },
+  "ai": {
+   "median": 0.9067472404298351,
+   "q1": 0.867557073687216,
+   "q3": 0.9276039540168892,
+   "min": 0.6547687742148216,
+   "max": 0.9693711277441535,
+   "n": 59
+  },
+  "difference_median": -0.015887533036729073,
+  "difference_median_ci": [
+   -0.02447033558834988,
+   -0.00755995284263189
+  ],
+  "difference_q1_q3": [
+   -0.03633877527030949,
+   0.011312799241502858
+  ],
+  "bland_altman": {
+   "bias": -0.023140981862717236,
+   "bias_ci": [
+    -0.03548857242438874,
+    -0.010793391301045726
+   ],
+   "limits": [
+    -0.11600800292899051,
+    0.06972603920355604
+   ],
+   "n": 59
+  },
+  "worst": [
+   {
+    "patient": "VS-SEG-135",
+    "doctor": 0.890386661936857,
+    "ai": 0.6547687742148216
+   },
+   {
+    "patient": "VS-SEG-141",
+    "doctor": 0.8577857785778579,
+    "ai": 0.7269452449567724
+   },
+   {
+    "patient": "VS-SEG-026",
+    "doctor": 0.9500545381479992,
+    "ai": 0.8216542554441025
+   }
+  ]
+ },
+ "paddick_ci": {
+  "doctor": {
+   "median": 0.8271219256259797,
+   "q1": 0.783224799653859,
+   "q3": 0.8595217991834915,
+   "min": 0.5595639868549955,
+   "max": 0.9035964982863126,
+   "n": 59
+  },
+  "ai": {
+   "median": 0.8067661559882953,
+   "q1": 0.7599445565137624,
+   "q3": 0.8452445514024085,
+   "min": 0.5497631256889743,
+   "max": 0.8980220333665005,
+   "n": 59
+  },
+  "difference_median": -0.011397331511095787,
+  "difference_median_ci": [
+   -0.01822141483321915,
+   -0.008511289142549505
+  ],
+  "difference_q1_q3": [
+   -0.027891596689031406,
+   -0.00540152998342569
+  ],
+  "bland_altman": {
+   "bias": -0.022916416485554335,
+   "bias_ci": [
+    -0.03205346176477721,
+    -0.01377937120633146
+   ],
+   "limits": [
+    -0.09163672043400473,
+    0.04580388746289605
+   ],
+   "n": 59
+  },
+  "worst": [
+   {
+    "patient": "VS-SEG-135",
+    "doctor": 0.7543442354168017,
+    "ai": 0.5851517071994068
+   },
+   {
+    "patient": "VS-SEG-128",
+    "doctor": 0.6856284922435489,
+    "ai": 0.5497631256889743
+   },
+   {
+    "patient": "VS-SEG-179",
+    "doctor": 0.8692136093354563,
+    "ai": 0.7509127005690307
+   }
+  ]
+ },
+ "gradient_index": {
+  "doctor": {
+   "median": 2.690849673202614,
+   "q1": 2.587933364688583,
+   "q3": 2.7972532221621718,
+   "min": 2.4789487798337353,
+   "max": 3.3921568627450984,
+   "n": 59
+  },
+  "ai": {
+   "median": 2.690849673202614,
+   "q1": 2.587933364688583,
+   "q3": 2.7972532221621718,
+   "min": 2.4789487798337353,
+   "max": 3.3921568627450984,
+   "n": 59
+  },
+  "difference_median": 0.0,
+  "difference_median_ci": [
+   0.0,
+   0.0
+  ],
+  "difference_q1_q3": [
+   0.0,
+   0.0
+  ],
+  "bland_altman": {
+   "bias": 0.0,
+   "bias_ci": [
+    0.0,
+    0.0
+   ],
+   "limits": [
+    0.0,
+    0.0
+   ],
+   "n": 59
+  },
+  "worst": [
+   {
+    "patient": "VS-SEG-001",
+    "doctor": 2.597593190490167,
+    "ai": 2.597593190490167
+   },
+   {
+    "patient": "VS-SEG-003",
+    "doctor": 2.716642228739003,
+    "ai": 2.716642228739003
+   },
+   {
+    "patient": "VS-SEG-020",
+    "doctor": 2.8721227621483374,
+    "ai": 2.8721227621483374
+   }
+  ]
+ },
+ "coverage_vs_volume_spearman": {
+  "rho": -0.8316603107303719,
+  "p": 3.438147783916106e-16,
+  "ci": [
+   -0.9099523699487981,
+   -0.7046343479492896
+  ],
+  "n": 59
+ },
+ "per_patient": [
+  {
+   "patient": "VS-SEG-001",
+   "dose_copy": "T2 (T1 copy unsound)",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9497511386871338,
+   "doctor_tumour_cc": 3.4371875000000003,
+   "ai_tumour_cc": 3.5953125,
+   "doctor_coverage": 0.9301209200836439,
+   "ai_coverage": 0.9025641025641026,
+   "doctor_paddick_ci": 0.8727903086314674,
+   "ai_paddick_ci": 0.85964793449384,
+   "doctor_gradient_index": 2.597593190490167,
+   "ai_gradient_index": 2.597593190490167
+  },
+  {
+   "patient": "VS-SEG-003",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9695841073989868,
+   "doctor_tumour_cc": 2.591625,
+   "ai_tumour_cc": 2.677,
+   "doctor_coverage": 0.9344764385279506,
+   "ai_coverage": 0.9185889054912215,
+   "doctor_paddick_ci": 0.829591906078619,
+   "ai_paddick_ci": 0.8280306196515786,
+   "doctor_gradient_index": 2.716642228739003,
+   "ai_gradient_index": 2.716642228739003
+  },
+  {
+   "patient": "VS-SEG-020",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9413440823554993,
+   "doctor_tumour_cc": 0.3854375,
+   "ai_tumour_cc": 0.3604375,
+   "doctor_coverage": 0.9176260742662559,
+   "ai_coverage": 0.938442864574302,
+   "doctor_paddick_ci": 0.8300584965269727,
+   "ai_paddick_ci": 0.8118370816937536,
+   "doctor_gradient_index": 2.8721227621483374,
+   "ai_gradient_index": 2.8721227621483374
+  },
+  {
+   "patient": "VS-SEG-021",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9620644450187683,
+   "doctor_tumour_cc": 3.9886875,
+   "ai_tumour_cc": 4.29675,
+   "doctor_coverage": 0.9316347796110876,
+   "ai_coverage": 0.8854366672485017,
+   "doctor_paddick_ci": 0.8874531763739557,
+   "ai_paddick_ci": 0.8635334018320749,
+   "doctor_gradient_index": 2.570110228146629,
+   "ai_gradient_index": 2.570110228146629
+  },
+  {
+   "patient": "VS-SEG-023",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9369869232177734,
+   "doctor_tumour_cc": 0.56225,
+   "ai_tumour_cc": 0.5873125,
+   "doctor_coverage": 0.9129613161405069,
+   "ai_coverage": 0.8962434819623284,
+   "doctor_paddick_ci": 0.8136014854016909,
+   "ai_paddick_ci": 0.8190280604477789,
+   "doctor_gradient_index": 2.7482638888888884,
+   "ai_gradient_index": 2.7482638888888884
+  },
+  {
+   "patient": "VS-SEG-026",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8970248103141785,
+   "doctor_tumour_cc": 2.177375,
+   "ai_tumour_cc": 2.6605625,
+   "doctor_coverage": 0.9500545381479992,
+   "ai_coverage": 0.8216542554441025,
+   "doctor_paddick_ci": 0.8563427315801329,
+   "ai_paddick_ci": 0.782652529756764,
+   "doctor_gradient_index": 2.587363834422658,
+   "ai_gradient_index": 2.587363834422658
+  },
+  {
+   "patient": "VS-SEG-027",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.923642635345459,
+   "doctor_tumour_cc": 1.3160625000000001,
+   "ai_tumour_cc": 1.284375,
+   "doctor_coverage": 0.928289879849931,
+   "ai_coverage": 0.9207299270072992,
+   "doctor_paddick_ci": 0.7864633443752862,
+   "ai_paddick_ci": 0.7550767574941535,
+   "doctor_gradient_index": 2.8307905686546464,
+   "ai_gradient_index": 2.8307905686546464
+  },
+  {
+   "patient": "VS-SEG-029",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.96772700548172,
+   "doctor_tumour_cc": 3.2216875000000003,
+   "ai_tumour_cc": 3.2543125,
+   "doctor_coverage": 0.947989213727278,
+   "ai_coverage": 0.9398874570281741,
+   "doctor_paddick_ci": 0.8840542159923124,
+   "ai_paddick_ci": 0.8778082492271337,
+   "doctor_gradient_index": 2.6833587786259545,
+   "ai_gradient_index": 2.6833587786259545
+  },
+  {
+   "patient": "VS-SEG-031",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8970335125923157,
+   "doctor_tumour_cc": 0.32775,
+   "ai_tumour_cc": 0.2895625,
+   "doctor_coverage": 0.8094965675057209,
+   "ai_coverage": 0.8536585365853658,
+   "doctor_paddick_ci": 0.6818081208455923,
+   "ai_paddick_ci": 0.6698848238482384,
+   "doctor_gradient_index": 2.8634920634920635,
+   "ai_gradient_index": 2.8634920634920635
+  },
+  {
+   "patient": "VS-SEG-037",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9578911662101746,
+   "doctor_tumour_cc": 2.082875,
+   "ai_tumour_cc": 1.95725,
+   "doctor_coverage": 0.9300546120146432,
+   "ai_coverage": 0.9533784646825905,
+   "doctor_paddick_ci": 0.848652929209664,
+   "ai_paddick_ci": 0.8379671291086734,
+   "doctor_gradient_index": 2.5760715967969854,
+   "ai_gradient_index": 2.5760715967969854
+  },
+  {
+   "patient": "VS-SEG-055",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9238379001617432,
+   "doctor_tumour_cc": 1.2525625,
+   "ai_tumour_cc": 1.325,
+   "doctor_coverage": 0.9156728706152387,
+   "ai_coverage": 0.8709905660377358,
+   "doctor_paddick_ci": 0.8166559510429745,
+   "ai_paddick_ci": 0.7816310654105167,
+   "doctor_gradient_index": 2.7760497667185073,
+   "ai_gradient_index": 2.7760497667185073
+  },
+  {
+   "patient": "VS-SEG-059",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9585282206535339,
+   "doctor_tumour_cc": 2.169375,
+   "ai_tumour_cc": 2.053375,
+   "doctor_coverage": 0.928406799193316,
+   "ai_coverage": 0.9417118159128265,
+   "doctor_paddick_ci": 0.8343905930389506,
+   "ai_paddick_ci": 0.812573122281541,
+   "doctor_gradient_index": 2.7103971441320835,
+   "ai_gradient_index": 2.7103971441320835
+  },
+  {
+   "patient": "VS-SEG-066",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9676130414009094,
+   "doctor_tumour_cc": 7.304437500000001,
+   "ai_tumour_cc": 7.0223125,
+   "doctor_coverage": 0.9498678029622404,
+   "ai_coverage": 0.962512349030323,
+   "doctor_paddick_ci": 0.8864048801483206,
+   "ai_paddick_ci": 0.8750075486372249,
+   "doctor_gradient_index": 2.819367854741089,
+   "ai_gradient_index": 2.819367854741089
+  },
+  {
+   "patient": "VS-SEG-075",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9251068234443665,
+   "doctor_tumour_cc": 2.5850625000000003,
+   "ai_tumour_cc": 2.696625,
+   "doctor_coverage": 0.9154033993375401,
+   "ai_coverage": 0.8827701293283271,
+   "doctor_paddick_ci": 0.8070744109938046,
+   "ai_paddick_ci": 0.7829486933182126,
+   "doctor_gradient_index": 2.8155737704918034,
+   "ai_gradient_index": 2.8155737704918034
+  },
+  {
+   "patient": "VS-SEG-076",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9676722288131714,
+   "doctor_tumour_cc": 7.3664375,
+   "ai_tumour_cc": 6.9807500000000005,
+   "doctor_coverage": 0.9490849545658944,
+   "ai_coverage": 0.9693711277441535,
+   "doctor_paddick_ci": 0.8897035162547775,
+   "ai_paddick_ci": 0.8795486505429342,
+   "doctor_gradient_index": 2.4789487798337353,
+   "ai_gradient_index": 2.4789487798337353
+  },
+  {
+   "patient": "VS-SEG-082",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9756945371627808,
+   "doctor_tumour_cc": 6.619875,
+   "ai_tumour_cc": 6.365875,
+   "doctor_coverage": 0.9474215902868256,
+   "ai_coverage": 0.9631531407701219,
+   "doctor_paddick_ci": 0.9035964982863126,
+   "ai_paddick_ci": 0.8980220333665005,
+   "doctor_gradient_index": 2.5847019464720193,
+   "ai_gradient_index": 2.5847019464720193
+  },
+  {
+   "patient": "VS-SEG-083",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9655964374542236,
+   "doctor_tumour_cc": 3.9133750000000003,
+   "ai_tumour_cc": 3.76025,
+   "doctor_coverage": 0.9151787140256172,
+   "ai_coverage": 0.9354265008975468,
+   "doctor_paddick_ci": 0.8566793950896816,
+   "ai_paddick_ci": 0.8599854293650848,
+   "doctor_gradient_index": 2.744903293256665,
+   "ai_gradient_index": 2.744903293256665
+  },
+  {
+   "patient": "VS-SEG-089",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9130470752716064,
+   "doctor_tumour_cc": 3.3071875,
+   "ai_tumour_cc": 3.437125,
+   "doctor_coverage": 0.9321553434753851,
+   "ai_coverage": 0.8778775866458158,
+   "doctor_paddick_ci": 0.8348809252782424,
+   "ai_paddick_ci": 0.7695775371892558,
+   "doctor_gradient_index": 2.7975014526438113,
+   "ai_gradient_index": 2.7975014526438113
+  },
+  {
+   "patient": "VS-SEG-091",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.975124180316925,
+   "doctor_tumour_cc": 1.6832500000000001,
+   "ai_tumour_cc": 1.6885000000000001,
+   "doctor_coverage": 0.9173102628843012,
+   "ai_coverage": 0.9127183891027539,
+   "doctor_paddick_ci": 0.8316995759159079,
+   "ai_paddick_ci": 0.8259619068737414,
+   "doctor_gradient_index": 2.7334116265413977,
+   "ai_gradient_index": 2.7334116265413977
+  },
+  {
+   "patient": "VS-SEG-093",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8785101771354675,
+   "doctor_tumour_cc": 0.11175,
+   "ai_tumour_cc": 0.0996875,
+   "doctor_coverage": 0.8752796420581656,
+   "ai_coverage": 0.9241379310344827,
+   "doctor_paddick_ci": 0.5595639868549955,
+   "ai_paddick_ci": 0.5564457967094883,
+   "doctor_gradient_index": 3.3921568627450984,
+   "ai_gradient_index": 3.3921568627450984
+  },
+  {
+   "patient": "VS-SEG-099",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9611786603927612,
+   "doctor_tumour_cc": 3.0385,
+   "ai_tumour_cc": 2.9681875,
+   "doctor_coverage": 0.9249629751522134,
+   "ai_coverage": 0.9403887052283592,
+   "doctor_paddick_ci": 0.8205834727478837,
+   "ai_paddick_ci": 0.8285542845545005,
+   "doctor_gradient_index": 2.7844065656565653,
+   "ai_gradient_index": 2.7844065656565653
+  },
+  {
+   "patient": "VS-SEG-104",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9697175621986389,
+   "doctor_tumour_cc": 5.635125,
+   "ai_tumour_cc": 5.9495625,
+   "doctor_coverage": 0.9491581819391761,
+   "ai_coverage": 0.9188070551406091,
+   "doctor_paddick_ci": 0.8803001874240377,
+   "ai_paddick_ci": 0.8709309462330743,
+   "doctor_gradient_index": 2.6670712675567887,
+   "ai_gradient_index": 2.6670712675567887
+  },
+  {
+   "patient": "VS-SEG-110",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9647760987281799,
+   "doctor_tumour_cc": 4.8385625,
+   "ai_tumour_cc": 4.9843125,
+   "doctor_coverage": 0.9409948719273545,
+   "ai_coverage": 0.9176917578903812,
+   "doctor_paddick_ci": 0.859977612216929,
+   "ai_paddick_ci": 0.8425490679095688,
+   "doctor_gradient_index": 2.655760738659173,
+   "ai_gradient_index": 2.655760738659173
+  },
+  {
+   "patient": "VS-SEG-115",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9725374579429626,
+   "doctor_tumour_cc": 1.4231875,
+   "ai_tumour_cc": 1.4625625,
+   "doctor_coverage": 0.9020684203592289,
+   "ai_coverage": 0.8895346352719968,
+   "doctor_paddick_ci": 0.8172806731915542,
+   "ai_paddick_ci": 0.8167145804438023,
+   "doctor_gradient_index": 2.6231474947071276,
+   "ai_gradient_index": 2.6231474947071276
+  },
+  {
+   "patient": "VS-SEG-118",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9738785624504089,
+   "doctor_tumour_cc": 0.74625,
+   "ai_tumour_cc": 0.7348125,
+   "doctor_coverage": 0.9102177554438862,
+   "ai_coverage": 0.9133282299906439,
+   "doctor_paddick_ci": 0.8071350005029501,
+   "ai_paddick_ci": 0.8002054939327296,
+   "doctor_gradient_index": 2.612271540469974,
+   "ai_gradient_index": 2.612271540469974
+  },
+  {
+   "patient": "VS-SEG-120",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9487596154212952,
+   "doctor_tumour_cc": 3.1361250000000003,
+   "ai_tumour_cc": 3.021125,
+   "doctor_coverage": 0.9380605046036111,
+   "ai_coverage": 0.9539906491787,
+   "doctor_paddick_ci": 0.8116637491119848,
+   "ai_paddick_ci": 0.8086824411071062,
+   "doctor_gradient_index": 2.7711764705882356,
+   "ai_gradient_index": 2.7711764705882356
+  },
+  {
+   "patient": "VS-SEG-128",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8394019603729248,
+   "doctor_tumour_cc": 0.49075,
+   "ai_tumour_cc": 0.3829375,
+   "doctor_coverage": 0.9170911869587367,
+   "ai_coverage": 0.9296556226538273,
+   "doctor_paddick_ci": 0.6856284922435489,
+   "ai_paddick_ci": 0.5497631256889743,
+   "doctor_gradient_index": 3.0813953488372094,
+   "ai_gradient_index": 3.0813953488372094
+  },
+  {
+   "patient": "VS-SEG-132",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9599625468254089,
+   "doctor_tumour_cc": 0.406625,
+   "ai_tumour_cc": 0.3941875,
+   "doctor_coverage": 0.9020903781125115,
+   "ai_coverage": 0.9197716822578087,
+   "doctor_paddick_ci": 0.699572995394071,
+   "ai_paddick_ci": 0.7050205508426993,
+   "doctor_gradient_index": 3.103594080338266,
+   "ai_gradient_index": 3.103594080338266
+  },
+  {
+   "patient": "VS-SEG-135",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.7774431705474854,
+   "doctor_tumour_cc": 1.057125,
+   "ai_tumour_cc": 1.516375,
+   "doctor_coverage": 0.890386661936857,
+   "ai_coverage": 0.6547687742148216,
+   "doctor_paddick_ci": 0.7543442354168017,
+   "ai_paddick_ci": 0.5851517071994068,
+   "doctor_gradient_index": 2.6075607560756078,
+   "ai_gradient_index": 2.6075607560756078
+  },
+  {
+   "patient": "VS-SEG-141",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8563425540924072,
+   "doctor_tumour_cc": 0.0694375,
+   "ai_tumour_cc": 0.08675000000000001,
+   "doctor_coverage": 0.8577857785778579,
+   "ai_coverage": 0.7269452449567724,
+   "doctor_paddick_ci": 0.6550239158531239,
+   "ai_paddick_ci": 0.5877305706421341,
+   "doctor_gradient_index": 3.141025641025641,
+   "ai_gradient_index": 3.141025641025641
+  },
+  {
+   "patient": "VS-SEG-144",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9323574304580688,
+   "doctor_tumour_cc": 1.2594375,
+   "ai_tumour_cc": 1.38775,
+   "doctor_coverage": 0.9204009726564439,
+   "ai_coverage": 0.8641235813366961,
+   "doctor_paddick_ci": 0.8144406889245738,
+   "ai_paddick_ci": 0.7910276314459537,
+   "doctor_gradient_index": 2.5587786259541985,
+   "ai_gradient_index": 2.5587786259541985
+  },
+  {
+   "patient": "VS-SEG-146",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9294465780258179,
+   "doctor_tumour_cc": 0.826625,
+   "ai_tumour_cc": 0.8414375000000001,
+   "doctor_coverage": 0.9166792681082716,
+   "ai_coverage": 0.901210725692639,
+   "doctor_paddick_ci": 0.7839883921095291,
+   "ai_paddick_ci": 0.7713311043191867,
+   "doctor_gradient_index": 2.681715575620767,
+   "ai_gradient_index": 2.681715575620767
+  },
+  {
+   "patient": "VS-SEG-150",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9320629239082336,
+   "doctor_tumour_cc": 2.8423125000000002,
+   "ai_tumour_cc": 3.107125,
+   "doctor_coverage": 0.9313279240055412,
+   "ai_coverage": 0.8751458341714607,
+   "doctor_paddick_ci": 0.7901735355234513,
+   "ai_paddick_ci": 0.7627197477423426,
+   "doctor_gradient_index": 2.9217948717948716,
+   "ai_gradient_index": 2.9217948717948716
+  },
+  {
+   "patient": "VS-SEG-154",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9726225733757019,
+   "doctor_tumour_cc": 1.9154375000000001,
+   "ai_tumour_cc": 1.922125,
+   "doctor_coverage": 0.9183606878324142,
+   "ai_coverage": 0.9196527281004097,
+   "doctor_paddick_ci": 0.8370227188809358,
+   "ai_paddick_ci": 0.8423101719191675,
+   "doctor_gradient_index": 2.5616580310880828,
+   "ai_gradient_index": 2.5616580310880828
+  },
+  {
+   "patient": "VS-SEG-157",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9713281989097595,
+   "doctor_tumour_cc": 6.8310625,
+   "ai_tumour_cc": 6.7929375,
+   "doctor_coverage": 0.9468786883446023,
+   "ai_coverage": 0.946681755867767,
+   "doctor_paddick_ci": 0.8722000706304405,
+   "ai_paddick_ci": 0.8669714755834012,
+   "doctor_gradient_index": 2.621475363144403,
+   "ai_gradient_index": 2.621475363144403
+  },
+  {
+   "patient": "VS-SEG-162",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9442582130432129,
+   "doctor_tumour_cc": 0.5835,
+   "ai_tumour_cc": 0.6285625,
+   "doctor_coverage": 0.8690017137960582,
+   "ai_coverage": 0.852142786119121,
+   "doctor_paddick_ci": 0.7331750108181594,
+   "ai_paddick_ci": 0.7594492176623199,
+   "doctor_gradient_index": 2.7970049916805326,
+   "ai_gradient_index": 2.7970049916805326
+  },
+  {
+   "patient": "VS-SEG-164",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9604589939117432,
+   "doctor_tumour_cc": 4.6978125,
+   "ai_tumour_cc": 4.88875,
+   "doctor_coverage": 0.9319763187653828,
+   "ai_coverage": 0.9087957044234212,
+   "doctor_paddick_ci": 0.843760404804495,
+   "ai_paddick_ci": 0.8349184688358574,
+   "doctor_gradient_index": 2.588502894954508,
+   "ai_gradient_index": 2.588502894954508
+  },
+  {
+   "patient": "VS-SEG-169",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9534675478935242,
+   "doctor_tumour_cc": 0.8261875,
+   "ai_tumour_cc": 0.8500625,
+   "doctor_coverage": 0.9080868446932446,
+   "ai_coverage": 0.892360855819425,
+   "doctor_paddick_ci": 0.7569912835901186,
+   "ai_paddick_ci": 0.7521238685472472,
+   "doctor_gradient_index": 2.8444444444444446,
+   "ai_gradient_index": 2.8444444444444446
+  },
+  {
+   "patient": "VS-SEG-171",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9237803220748901,
+   "doctor_tumour_cc": 1.478375,
+   "ai_tumour_cc": 1.5974375,
+   "doctor_coverage": 0.9108396042952567,
+   "ai_coverage": 0.8581321647951797,
+   "doctor_paddick_ci": 0.8016355912802821,
+   "ai_paddick_ci": 0.7688485608845047,
+   "doctor_gradient_index": 2.690849673202614,
+   "ai_gradient_index": 2.690849673202614
+  },
+  {
+   "patient": "VS-SEG-179",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8982679843902588,
+   "doctor_tumour_cc": 2.581875,
+   "ai_tumour_cc": 2.383375,
+   "doctor_coverage": 0.9263616557734204,
+   "ai_coverage": 0.8961556616143074,
+   "doctor_paddick_ci": 0.8692136093354563,
+   "ai_paddick_ci": 0.7509127005690307,
+   "doctor_gradient_index": 2.841506473126717,
+   "ai_gradient_index": 2.841506473126717
+  },
+  {
+   "patient": "VS-SEG-181",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9778405427932739,
+   "doctor_tumour_cc": 2.480875,
+   "ai_tumour_cc": 2.5649375,
+   "doctor_coverage": 0.9275457247946792,
+   "ai_coverage": 0.9067472404298351,
+   "doctor_paddick_ci": 0.8722511875636109,
+   "ai_paddick_ci": 0.8618174885286837,
+   "doctor_gradient_index": 2.631385369840621,
+   "ai_gradient_index": 2.631385369840621
+  },
+  {
+   "patient": "VS-SEG-191",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9554949402809143,
+   "doctor_tumour_cc": 0.636625,
+   "ai_tumour_cc": 0.691875,
+   "doctor_coverage": 0.8902415079520911,
+   "ai_coverage": 0.8392050587172539,
+   "doctor_paddick_ci": 0.8271219256259797,
+   "ai_paddick_ci": 0.7987925200290256,
+   "doctor_gradient_index": 2.537704918032787,
+   "ai_gradient_index": 2.537704918032787
+  },
+  {
+   "patient": "VS-SEG-193",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.8952043652534485,
+   "doctor_tumour_cc": 4.28975,
+   "ai_tumour_cc": 3.7526875,
+   "doctor_coverage": 0.9225042251879481,
+   "ai_coverage": 0.9460220175540862,
+   "doctor_paddick_ci": 0.7762359135953819,
+   "ai_paddick_ci": 0.7141178854070169,
+   "doctor_gradient_index": 2.506059961726557,
+   "ai_gradient_index": 2.506059961726557
+  },
+  {
+   "patient": "VS-SEG-196",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9219174981117249,
+   "doctor_tumour_cc": 0.7546875000000001,
+   "ai_tumour_cc": 0.738125,
+   "doctor_coverage": 0.8531677018633539,
+   "ai_coverage": 0.8442845046570703,
+   "doctor_paddick_ci": 0.6962399924426704,
+   "ai_paddick_ci": 0.666853675216702,
+   "doctor_gradient_index": 2.7072243346007605,
+   "ai_gradient_index": 2.7072243346007605
+  },
+  {
+   "patient": "VS-SEG-198",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9463602304458618,
+   "doctor_tumour_cc": 1.324125,
+   "ai_tumour_cc": 1.3709375,
+   "doctor_coverage": 0.9136694043236099,
+   "ai_coverage": 0.8890813767950764,
+   "doctor_paddick_ci": 0.8444374837419842,
+   "ai_paddick_ci": 0.8278678862804422,
+   "doctor_gradient_index": 2.6042780748663104,
+   "ai_gradient_index": 2.6042780748663104
+  },
+  {
+   "patient": "VS-SEG-202",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9594257473945618,
+   "doctor_tumour_cc": 3.0695,
+   "ai_tumour_cc": 3.295375,
+   "doctor_coverage": 0.9348020850301353,
+   "ai_coverage": 0.8947578044987293,
+   "doctor_paddick_ci": 0.8652573331397885,
+   "ai_paddick_ci": 0.8510481641700917,
+   "doctor_gradient_index": 2.573548387096774,
+   "ai_gradient_index": 2.573548387096774
+  },
+  {
+   "patient": "VS-SEG-203",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9230415225028992,
+   "doctor_tumour_cc": 2.0255625,
+   "ai_tumour_cc": 2.3225625,
+   "doctor_coverage": 0.928661791477676,
+   "ai_coverage": 0.8398589919539302,
+   "doctor_paddick_ci": 0.847173070383839,
+   "ai_paddick_ci": 0.7944956092047213,
+   "doctor_gradient_index": 2.533947623666344,
+   "ai_gradient_index": 2.533947623666344
+  },
+  {
+   "patient": "VS-SEG-204",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9431809782981873,
+   "doctor_tumour_cc": 0.819875,
+   "ai_tumour_cc": 0.8895000000000001,
+   "doctor_coverage": 0.8990699801799055,
+   "ai_coverage": 0.848159078133783,
+   "doctor_paddick_ci": 0.8232633032796434,
+   "ai_paddick_ci": 0.7948857323100073,
+   "doctor_gradient_index": 2.7440993788819874,
+   "ai_gradient_index": 2.7440993788819874
+  },
+  {
+   "patient": "VS-SEG-206",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9648545980453491,
+   "doctor_tumour_cc": 4.6745,
+   "ai_tumour_cc": 4.5105625,
+   "doctor_coverage": 0.9237752700823618,
+   "ai_coverage": 0.935664897670745,
+   "doctor_paddick_ci": 0.8565674949707492,
+   "ai_paddick_ci": 0.8479400348952482,
+   "doctor_gradient_index": 2.709254885119176,
+   "ai_gradient_index": 2.709254885119176
+  },
+  {
+   "patient": "VS-SEG-216",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9022107720375061,
+   "doctor_tumour_cc": 0.5483750000000001,
+   "ai_tumour_cc": 0.66725,
+   "doctor_coverage": 0.8914976065648507,
+   "ai_coverage": 0.7973960284750843,
+   "doctor_paddick_ci": 0.782461207198189,
+   "ai_paddick_ci": 0.7616957350099184,
+   "doctor_gradient_index": 2.5763016157989225,
+   "ai_gradient_index": 2.5763016157989225
+  },
+  {
+   "patient": "VS-SEG-217",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9683417081832886,
+   "doctor_tumour_cc": 5.25675,
+   "ai_tumour_cc": 5.4928125,
+   "doctor_coverage": 0.9379607171731583,
+   "ai_coverage": 0.9131592421915002,
+   "doctor_paddick_ci": 0.8846083705263779,
+   "ai_paddick_ci": 0.8760970813838284,
+   "doctor_gradient_index": 2.491201224177506,
+   "ai_gradient_index": 2.491201224177506
+  },
+  {
+   "patient": "VS-SEG-223",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9414480924606323,
+   "doctor_tumour_cc": 2.2401875,
+   "ai_tumour_cc": 2.2536875,
+   "doctor_coverage": 0.9222442317886336,
+   "ai_coverage": 0.9168030172772401,
+   "doctor_paddick_ci": 0.8114806571019237,
+   "ai_paddick_ci": 0.8067661559882953,
+   "doctor_gradient_index": 2.888841567291312,
+   "ai_gradient_index": 2.888841567291312
+  },
+  {
+   "patient": "VS-SEG-229",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9125000238418579,
+   "doctor_tumour_cc": 0.2793125,
+   "ai_tumour_cc": 0.3006875,
+   "doctor_coverage": 0.8500783172969344,
+   "ai_coverage": 0.8256079817085845,
+   "doctor_paddick_ci": 0.6307514701974714,
+   "ai_paddick_ci": 0.6404911920598628,
+   "doctor_gradient_index": 3.11875,
+   "ai_gradient_index": 3.11875
+  },
+  {
+   "patient": "VS-SEG-235",
+   "dose_copy": "T1",
+   "prescription_gy": 13.0,
+   "dice_on_dose_grid": 0.9459415078163147,
+   "doctor_tumour_cc": 0.550875,
+   "ai_tumour_cc": 0.5971875,
+   "doctor_coverage": 0.8147265713637395,
+   "ai_coverage": 0.7880690737833596,
+   "doctor_paddick_ci": 0.6660463921861354,
+   "ai_paddick_ci": 0.6755646773211176,
+   "doctor_gradient_index": 2.7632058287795993,
+   "ai_gradient_index": 2.7632058287795993
+  },
+  {
+   "patient": "VS-SEG-238",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.8591687083244324,
+   "doctor_tumour_cc": 1.1143750000000001,
+   "ai_tumour_cc": 1.3185,
+   "doctor_coverage": 0.9038137969713965,
+   "ai_coverage": 0.7828024270003792,
+   "doctor_paddick_ci": 0.7467678085620413,
+   "ai_paddick_ci": 0.6627973379555098,
+   "doctor_gradient_index": 2.642329778506973,
+   "ai_gradient_index": 2.642329778506973
+  },
+  {
+   "patient": "VS-SEG-241",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9522770047187805,
+   "doctor_tumour_cc": 4.1605,
+   "ai_tumour_cc": 3.972375,
+   "doctor_coverage": 0.9343378199735609,
+   "ai_coverage": 0.9450737908681834,
+   "doctor_paddick_ci": 0.8594564805503959,
+   "ai_paddick_ci": 0.8395608642344884,
+   "doctor_gradient_index": 2.5466161855182206,
+   "ai_gradient_index": 2.5466161855182206
+  },
+  {
+   "patient": "VS-SEG-245",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9781656265258789,
+   "doctor_tumour_cc": 3.5365625,
+   "ai_tumour_cc": 3.525125,
+   "doctor_coverage": 0.9270654767164442,
+   "ai_coverage": 0.9255522853799512,
+   "doctor_paddick_ci": 0.859587117816587,
+   "ai_paddick_ci": 0.8540124072696831,
+   "doctor_gradient_index": 2.585407239819004,
+   "ai_gradient_index": 2.585407239819004
+  },
+  {
+   "patient": "VS-SEG-246",
+   "dose_copy": "T1",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9765886068344116,
+   "doctor_tumour_cc": 5.8231875,
+   "ai_tumour_cc": 5.9125625,
+   "doctor_coverage": 0.9330478367732449,
+   "ai_coverage": 0.9219564275219079,
+   "doctor_paddick_ci": 0.8925247314503578,
+   "ai_paddick_ci": 0.8848062906646761,
+   "doctor_gradient_index": 2.6316901408450706,
+   "ai_gradient_index": 2.6316901408450706
+  },
+  {
+   "patient": "VS-SEG-247",
+   "dose_copy": "T2 (T1 copy unsound)",
+   "prescription_gy": 12.0,
+   "dice_on_dose_grid": 0.9330927729606628,
+   "doctor_tumour_cc": 1.2129375,
+   "ai_tumour_cc": 1.246625,
+   "doctor_coverage": 0.9197196887720925,
+   "ai_coverage": 0.9030883385139877,
+   "doctor_paddick_ci": 0.7673932650006114,
+   "ai_paddick_ci": 0.7604398953652048,
+   "doctor_gradient_index": 2.691847419596111,
+   "ai_gradient_index": 2.691847419596111
+  }
+ ]
+}

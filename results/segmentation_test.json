@@ -1,0 +1,688 @@
+{
+ "settings": {
+  "fine_checkpoint": "best",
+  "mirror": true,
+  "candidates": 1,
+  "threshold": 0.5,
+  "largest_only": true,
+  "mean_dice": 0.9410837824937237,
+  "median_hd95_mm": 0.8687248781981991,
+  "found": 20,
+  "seconds_per_patient": 4.235812664031982
+ },
+ "patients": 60,
+ "missing": [],
+ "dice": {
+  "mean": 0.9344837072494495,
+  "mean_ci": [
+   0.9223940831706998,
+   0.9452103806977735
+  ],
+  "sd": 0.04615920539096367,
+  "median": 0.9496664032156431,
+  "median_ci": [
+   0.9350343753181972,
+   0.9559435779531473
+  ],
+  "q1": 0.9209883039336099,
+  "q3": 0.965667861400253,
+  "min": 0.7375857053812591,
+  "max": 0.9774071698382154,
+  "n": 60
+ },
+ "hd95_mm": {
+  "median": 0.9171372563963981,
+  "median_ci": [
+   0.8203125,
+   1.0800485314420898
+  ],
+  "mean": 1.1559932566662963,
+  "mean_ci": [
+   0.9754854566041848,
+   1.3391089322169958
+  ],
+  "q1": 0.5800485314420898,
+  "q3": 1.5,
+  "min": 0.41015625,
+  "max": 3.7951589061347235,
+  "n": 60
+ },
+ "volume_cc": {
+  "bland_altman": {
+   "bias": 0.02757679939270018,
+   "bias_ci": [
+    -0.0190322051187464,
+    0.07418580390414677
+   ],
+   "limits": [
+    -0.32605836084446177,
+    0.38121195962986215
+   ],
+   "n": 60
+  },
+  "relative_error_pct_median": 2.4483519965148934,
+  "relative_error_pct_ci": [
+   -0.6501513283264129,
+   3.7697976179844654
+  ]
+ },
+ "found": {
+  "n": 60,
+  "of": 60,
+  "ci": [
+   0.9403705077138331,
+   1.0
+  ]
+ },
+ "doctor_t2_vs_t1_dice": {
+  "mean": 0.9367897977193954,
+  "mean_ci": [
+   0.9259933715023356,
+   0.9465584631348073
+  ],
+  "median": 0.9447738053029504,
+  "n": 60
+ },
+ "per_patient": [
+  {
+   "patient": "VS-SEG-001",
+   "tumour_name": "TV",
+   "dice": 0.9513695201315884,
+   "hd95_mm": 1.478839390327027,
+   "found": true,
+   "ai_cc": 3.5984001159667973,
+   "doctor_cc": 3.458602523803711,
+   "doctor_t2_vs_t1_dice": 0.9467070736935472
+  },
+  {
+   "patient": "VS-SEG-003",
+   "tumour_name": "AN",
+   "dice": 0.9675908221797324,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 2.6851736068725587,
+   "doctor_cc": 2.593825721740723,
+   "doctor_t2_vs_t1_dice": 0.9421864919855094
+  },
+  {
+   "patient": "VS-SEG-020",
+   "tumour_name": "Rt AN",
+   "dice": 0.9407008086253369,
+   "hd95_mm": 1.0,
+   "found": true,
+   "ai_cc": 0.3611858367919922,
+   "doctor_cc": 0.38776588439941406,
+   "doctor_t2_vs_t1_dice": 0.9696436427628684
+  },
+  {
+   "patient": "VS-SEG-021",
+   "tumour_name": "TV",
+   "dice": 0.9629155620562513,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 4.290322494506836,
+   "doctor_cc": 3.990792274475098,
+   "doctor_t2_vs_t1_dice": 0.9732971765831872
+  },
+  {
+   "patient": "VS-SEG-023",
+   "tumour_name": "TV",
+   "dice": 0.9317094388864724,
+   "hd95_mm": 1.0,
+   "found": true,
+   "ai_cc": 0.5908172607421875,
+   "doctor_cc": 0.5694522857666016,
+   "doctor_t2_vs_t1_dice": 0.9717971797179717
+  },
+  {
+   "patient": "VS-SEG-026",
+   "tumour_name": "TV",
+   "dice": 0.9011057467684161,
+   "hd95_mm": 2.996518976506323,
+   "found": true,
+   "ai_cc": 2.6601917266845705,
+   "doctor_cc": 2.2006765365600587,
+   "doctor_t2_vs_t1_dice": 0.9769065208539351
+  },
+  {
+   "patient": "VS-SEG-027",
+   "tumour_name": "AN",
+   "dice": 0.915038968536515,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 1.2932538986206057,
+   "doctor_cc": 1.329338836669922,
+   "doctor_t2_vs_t1_dice": 0.9028703972165845
+  },
+  {
+   "patient": "VS-SEG-029",
+   "tumour_name": "TV",
+   "dice": 0.9662653721682848,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 3.2577381134033203,
+   "doctor_cc": 3.2400741577148438,
+   "doctor_t2_vs_t1_dice": 0.9612151368338353
+  },
+  {
+   "patient": "VS-SEG-031",
+   "tumour_name": "TV",
+   "dice": 0.9123363744545815,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 0.30407238006591797,
+   "doctor_cc": 0.3320823669433594,
+   "doctor_t2_vs_t1_dice": 0.7798845836768343
+  },
+  {
+   "patient": "VS-SEG-037",
+   "tumour_name": "TV",
+   "dice": 0.9559435779531473,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 1.9619607925415041,
+   "doctor_cc": 2.098982620239258,
+   "doctor_t2_vs_t1_dice": 0.9739672451723295
+  },
+  {
+   "patient": "VS-SEG-055",
+   "tumour_name": "AN",
+   "dice": 0.9210397253555664,
+   "hd95_mm": 1.23046875,
+   "found": true,
+   "ai_cc": 1.3280771255493165,
+   "doctor_cc": 1.2445518493652346,
+   "doctor_t2_vs_t1_dice": 0.9617649995008486
+  },
+  {
+   "patient": "VS-SEG-059",
+   "tumour_name": "AN",
+   "dice": 0.9549219119734974,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 2.0679445266723633,
+   "doctor_cc": 2.197648429870606,
+   "doctor_t2_vs_t1_dice": 0.8952659263588545
+  },
+  {
+   "patient": "VS-SEG-063",
+   "tumour_name": "Men",
+   "dice": 0.7375857053812591,
+   "hd95_mm": 2.222982319008633,
+   "found": true,
+   "ai_cc": 0.7620735168457032,
+   "doctor_cc": 0.45244960784912114,
+   "doctor_t2_vs_t1_dice": 0.9353523587652883
+  },
+  {
+   "patient": "VS-SEG-066",
+   "tumour_name": "AN",
+   "dice": 0.9656444303930868,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 7.025964546203614,
+   "doctor_cc": 7.340887641906739,
+   "doctor_t2_vs_t1_dice": 0.9744625047451427
+  },
+  {
+   "patient": "VS-SEG-075",
+   "tumour_name": "TV",
+   "dice": 0.9264698892532915,
+   "hd95_mm": 1.940116837906048,
+   "found": true,
+   "ai_cc": 2.70384693145752,
+   "doctor_cc": 2.6051811218261722,
+   "doctor_t2_vs_t1_dice": 0.9465678818507434
+  },
+  {
+   "patient": "VS-SEG-076",
+   "tumour_name": "TV",
+   "dice": 0.9681385463870447,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 6.994674110412598,
+   "doctor_cc": 7.372178077697755,
+   "doctor_t2_vs_t1_dice": 0.9738350017259234
+  },
+  {
+   "patient": "VS-SEG-082",
+   "tumour_name": "TV",
+   "dice": 0.9745284477427335,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 6.395361328125,
+   "doctor_cc": 6.661834716796876,
+   "doctor_t2_vs_t1_dice": 0.9928722130352968
+  },
+  {
+   "patient": "VS-SEG-083",
+   "tumour_name": "AN",
+   "dice": 0.9648317039564333,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 3.761917877197266,
+   "doctor_cc": 3.9299777984619144,
+   "doctor_t2_vs_t1_dice": 0.9771514125764874
+  },
+  {
+   "patient": "VS-SEG-089",
+   "tumour_name": "AN",
+   "dice": 0.9128519154656113,
+   "hd95_mm": 2.2974130428490924,
+   "found": true,
+   "ai_cc": 3.438919830322266,
+   "doctor_cc": 3.3193096160888675,
+   "doctor_t2_vs_t1_dice": 0.9506657430924343
+  },
+  {
+   "patient": "VS-SEG-091",
+   "tumour_name": "TV",
+   "dice": 0.9720861172976986,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 1.69801082611084,
+   "doctor_cc": 1.701038932800293,
+   "doctor_t2_vs_t1_dice": 0.9449056603773585
+  },
+  {
+   "patient": "VS-SEG-093",
+   "tumour_name": "AN",
+   "dice": 0.8791893998441154,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 0.10194625854492188,
+   "doctor_cc": 0.11389045715332032,
+   "doctor_t2_vs_t1_dice": 0.8715524034672971
+  },
+  {
+   "patient": "VS-SEG-099",
+   "tumour_name": "AN",
+   "dice": 0.9574539363484087,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 2.9652734756469727,
+   "doctor_cc": 3.0606588363647464,
+   "doctor_t2_vs_t1_dice": 0.9322154090017937
+  },
+  {
+   "patient": "VS-SEG-104",
+   "tumour_name": "TV",
+   "dice": 0.9707084026892064,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 5.983034133911134,
+   "doctor_cc": 5.690064811706543,
+   "doctor_t2_vs_t1_dice": 0.9417339025098899
+  },
+  {
+   "patient": "VS-SEG-110",
+   "tumour_name": "TV",
+   "dice": 0.9657381544217513,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 4.98325424194336,
+   "doctor_cc": 4.863896369934082,
+   "doctor_t2_vs_t1_dice": 0.9235762144053601
+  },
+  {
+   "patient": "VS-SEG-115",
+   "tumour_name": "TV",
+   "dice": 0.9709514698208384,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 1.4683794021606447,
+   "doctor_cc": 1.4330514907836915,
+   "doctor_t2_vs_t1_dice": 0.9432883808162901
+  },
+  {
+   "patient": "VS-SEG-118",
+   "tumour_name": "TV",
+   "dice": 0.9742615304888582,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 0.7209417343139649,
+   "doctor_cc": 0.7398674011230469,
+   "doctor_t2_vs_t1_dice": 0.964174991388219
+  },
+  {
+   "patient": "VS-SEG-120",
+   "tumour_name": "AN",
+   "dice": 0.9488049029622063,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 3.0185176849365236,
+   "doctor_cc": 3.1575582504272464,
+   "doctor_t2_vs_t1_dice": 0.9099730897822719
+  },
+  {
+   "patient": "VS-SEG-128",
+   "tumour_name": "AN",
+   "dice": 0.8385985066053991,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 0.38532657623291017,
+   "doctor_cc": 0.49332904815673834,
+   "doctor_t2_vs_t1_dice": 0.8677333333333334
+  },
+  {
+   "patient": "VS-SEG-132",
+   "tumour_name": "AN",
+   "dice": 0.9550455831499528,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 0.39516792297363285,
+   "doctor_cc": 0.40753269195556646,
+   "doctor_t2_vs_t1_dice": 0.8612531969309463
+  },
+  {
+   "patient": "VS-SEG-135",
+   "tumour_name": "TV",
+   "dice": 0.7703353988393823,
+   "hd95_mm": 3.7951589061347235,
+   "found": true,
+   "ai_cc": 1.5193525314331056,
+   "doctor_cc": 1.0462108612060548,
+   "doctor_t2_vs_t1_dice": 0.8592220828105396
+  },
+  {
+   "patient": "VS-SEG-141",
+   "tumour_name": "TV",
+   "dice": 0.854978354978355,
+   "hd95_mm": 1.0,
+   "found": true,
+   "ai_cc": 0.08512344360351563,
+   "doctor_cc": 0.07031936645507812,
+   "doctor_t2_vs_t1_dice": 0.9227053140096618
+  },
+  {
+   "patient": "VS-SEG-144",
+   "tumour_name": "TV",
+   "dice": 0.9396867085639246,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 1.3954524993896487,
+   "doctor_cc": 1.2947679519653321,
+   "doctor_t2_vs_t1_dice": 0.920489600955319
+  },
+  {
+   "patient": "VS-SEG-146",
+   "tumour_name": "AN",
+   "dice": 0.9248566542601347,
+   "hd95_mm": 1.0,
+   "found": true,
+   "ai_cc": 0.842654800415039,
+   "doctor_cc": 0.8297012329101563,
+   "doctor_t2_vs_t1_dice": 0.9630312339989759
+  },
+  {
+   "patient": "VS-SEG-150",
+   "tumour_name": "AN",
+   "dice": 0.9299039722492491,
+   "hd95_mm": 2.2605040455701606,
+   "found": true,
+   "ai_cc": 3.1103702545166017,
+   "doctor_cc": 2.854747581481934,
+   "doctor_t2_vs_t1_dice": 0.9486916596086123
+  },
+  {
+   "patient": "VS-SEG-154",
+   "tumour_name": "TV",
+   "dice": 0.9729551015010249,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 1.9066978454589845,
+   "doctor_cc": 1.9094736099243166,
+   "doctor_t2_vs_t1_dice": 0.9556163652139091
+  },
+  {
+   "patient": "VS-SEG-157",
+   "tumour_name": "AN",
+   "dice": 0.9732175840413743,
+   "hd95_mm": 1.478839390327027,
+   "found": true,
+   "ai_cc": 6.801884651184083,
+   "doctor_cc": 6.8599233627319345,
+   "doctor_t2_vs_t1_dice": 0.9568159130402633
+  },
+  {
+   "patient": "VS-SEG-162",
+   "tumour_name": "TV",
+   "dice": 0.9521287431248727,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 0.6409492492675781,
+   "doctor_cc": 0.5977987289428711,
+   "doctor_t2_vs_t1_dice": 0.891636690647482
+  },
+  {
+   "patient": "VS-SEG-164",
+   "tumour_name": "TV",
+   "dice": 0.9584253127299485,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 4.891654014587402,
+   "doctor_cc": 4.710472297668457,
+   "doctor_t2_vs_t1_dice": 0.9825302673275371
+  },
+  {
+   "patient": "VS-SEG-169",
+   "tumour_name": "AN",
+   "dice": 0.9505279034690799,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 0.8466081619262696,
+   "doctor_cc": 0.8264207839965821,
+   "doctor_t2_vs_t1_dice": 0.8406676783004552
+  },
+  {
+   "patient": "VS-SEG-171",
+   "tumour_name": "AN",
+   "dice": 0.9232402417115793,
+   "hd95_mm": 2.510956687619146,
+   "found": true,
+   "ai_cc": 1.5995973587036134,
+   "doctor_cc": 1.490585517883301,
+   "doctor_t2_vs_t1_dice": 0.9153648068669528
+  },
+  {
+   "patient": "VS-SEG-179",
+   "tumour_name": "AN",
+   "dice": 0.8977624435537064,
+   "hd95_mm": 2.911089405758661,
+   "found": true,
+   "ai_cc": 2.383876991271973,
+   "doctor_cc": 2.5895359039306642,
+   "doctor_t2_vs_t1_dice": 0.9833251593918587
+  },
+  {
+   "patient": "VS-SEG-181",
+   "tumour_name": "TV",
+   "dice": 0.9765846383296047,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 2.5801992416381836,
+   "doctor_cc": 2.495664596557617,
+   "doctor_t2_vs_t1_dice": 0.9772343582135367
+  },
+  {
+   "patient": "VS-SEG-191",
+   "tumour_name": "TV",
+   "dice": 0.9531190926275992,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 0.6959598541259766,
+   "doctor_cc": 0.6389305114746094,
+   "doctor_t2_vs_t1_dice": 0.9334681496461071
+  },
+  {
+   "patient": "VS-SEG-193",
+   "tumour_name": "TV",
+   "dice": 0.8980220747775227,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 3.761413192749024,
+   "doctor_cc": 4.263321876525879,
+   "doctor_t2_vs_t1_dice": 0.9204462769827795
+  },
+  {
+   "patient": "VS-SEG-196",
+   "tumour_name": "TV",
+   "dice": 0.9208340396677402,
+   "hd95_mm": 1.5,
+   "found": true,
+   "ai_cc": 0.7333065032958985,
+   "doctor_cc": 0.7552602767944336,
+   "doctor_t2_vs_t1_dice": 0.9446419502285424
+  },
+  {
+   "patient": "VS-SEG-198",
+   "tumour_name": "TV",
+   "dice": 0.9385753931544866,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 1.388639259338379,
+   "doctor_cc": 1.3391801834106447,
+   "doctor_t2_vs_t1_dice": 0.9429389312977099
+  },
+  {
+   "patient": "VS-SEG-202",
+   "tumour_name": "TV",
+   "dice": 0.9621561456511369,
+   "hd95_mm": 1.1600970628841796,
+   "found": true,
+   "ai_cc": 3.2746450424194338,
+   "doctor_cc": 3.073275947570801,
+   "doctor_t2_vs_t1_dice": 0.9335842743621916
+  },
+  {
+   "patient": "VS-SEG-203",
+   "tumour_name": "TV",
+   "dice": 0.9183305198207113,
+   "hd95_mm": 2.5408076935005455,
+   "found": true,
+   "ai_cc": 2.3270999908447267,
+   "doctor_cc": 2.007887077331543,
+   "doctor_t2_vs_t1_dice": 0.9276579499904561
+  },
+  {
+   "patient": "VS-SEG-204",
+   "tumour_name": "TV",
+   "dice": 0.9431176726009552,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 0.904142189025879,
+   "doctor_cc": 0.8392902374267579,
+   "doctor_t2_vs_t1_dice": 0.9405862987929142
+  },
+  {
+   "patient": "VS-SEG-206",
+   "tumour_name": "TV",
+   "dice": 0.9642358735805172,
+   "hd95_mm": 1.1600970628841796,
+   "found": true,
+   "ai_cc": 4.513393020629883,
+   "doctor_cc": 4.708453559875489,
+   "doctor_t2_vs_t1_dice": 0.9597273686203446
+  },
+  {
+   "patient": "VS-SEG-216",
+   "tumour_name": "TV",
+   "dice": 0.906816760475297,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 0.6611366271972657,
+   "doctor_cc": 0.5493490219116212,
+   "doctor_t2_vs_t1_dice": 0.9119244391971665
+  },
+  {
+   "patient": "VS-SEG-217",
+   "tumour_name": "TV",
+   "dice": 0.9684698391891575,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 5.504593276977539,
+   "doctor_cc": 5.275718879699707,
+   "doctor_t2_vs_t1_dice": 0.9814645858343337
+  },
+  {
+   "patient": "VS-SEG-223",
+   "tumour_name": "AN",
+   "dice": 0.9383715699505173,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 2.236509132385254,
+   "doctor_cc": 2.2511449813842774,
+   "doctor_t2_vs_t1_dice": 0.9171376893511192
+  },
+  {
+   "patient": "VS-SEG-229",
+   "tumour_name": "TV",
+   "dice": 0.9216630196936543,
+   "hd95_mm": 0.5920617298699744,
+   "found": true,
+   "ai_cc": 0.2944833755493164,
+   "doctor_cc": 0.28211860656738286,
+   "doctor_t2_vs_t1_dice": 0.9529465509365007
+  },
+  {
+   "patient": "VS-SEG-235",
+   "tumour_name": "TV",
+   "dice": 0.9457161543492478,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 0.6018362045288086,
+   "doctor_cc": 0.5556575775146485,
+   "doctor_t2_vs_t1_dice": 0.8767852820140402
+  },
+  {
+   "patient": "VS-SEG-238",
+   "tumour_name": "TV",
+   "dice": 0.8647203947368421,
+   "hd95_mm": 1.709652771078458,
+   "found": true,
+   "ai_cc": 1.318488121032715,
+   "doctor_cc": 1.1362970352172852,
+   "doctor_t2_vs_t1_dice": 0.8936218939654186
+  },
+  {
+   "patient": "VS-SEG-241",
+   "tumour_name": "TV",
+   "dice": 0.9509324081531504,
+   "hd95_mm": 0.9171372563963981,
+   "found": true,
+   "ai_cc": 3.9736330032348635,
+   "doctor_cc": 4.172478675842285,
+   "doctor_t2_vs_t1_dice": 0.9772044316284717
+  },
+  {
+   "patient": "VS-SEG-245",
+   "tumour_name": "TV",
+   "dice": 0.9774071698382154,
+   "hd95_mm": 0.41015625,
+   "found": true,
+   "ai_cc": 3.528248977661133,
+   "doctor_cc": 3.5529785156250004,
+   "doctor_t2_vs_t1_dice": 0.982545065143673
+  },
+  {
+   "patient": "VS-SEG-246",
+   "tumour_name": "TV",
+   "dice": 0.9747444377630787,
+   "hd95_mm": 0.5800485314420898,
+   "found": true,
+   "ai_cc": 5.909602546691895,
+   "doctor_cc": 5.840460777282716,
+   "doctor_t2_vs_t1_dice": 0.9684430603044624
+  },
+  {
+   "patient": "VS-SEG-247",
+   "tumour_name": "TV",
+   "dice": 0.933360340287624,
+   "hd95_mm": 0.8203125,
+   "found": true,
+   "ai_cc": 1.2584306716918947,
+   "doctor_cc": 1.2331964492797853,
+   "doctor_t2_vs_t1_dice": 0.958112462322004
+  }
+ ]
+}

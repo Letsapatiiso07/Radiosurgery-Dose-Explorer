@@ -53,20 +53,21 @@ def draw_case(ax, patient, row, chosen):
     ax.set_xticks([])
     ax.set_yticks([])
     hd = "" if np.isnan(row["hd95_mm"]) else f", HD95 {row['hd95_mm']:.1f} mm"
-    return f"{patient}: Dice {row['dice']:.3f}{hd}\ndoctor {row['doctor_cc']:.2f} cc, AI {row['ai_cc']:.2f} cc"
+    kind = " (a meningioma)" if row["tumour_name"].lower().startswith("men") else ""
+    return f"{patient}{kind}: Dice {row['dice']:.3f}{hd}\ndoctor {row['doctor_cc']:.2f} cc, AI {row['ai_cc']:.2f} cc"
 
 
 def cases(test, chosen):
     rows = sorted(test["per_patient"], key=lambda r: r["dice"])
     picks = [("Best", rows[-1]), ("Typical (median Dice)", rows[len(rows) // 2]), ("Worst", rows[0])]
-    fig, axes = plt.subplots(1, 3, figsize=(12, 4.6))
+    fig, axes = plt.subplots(1, 3, figsize=(12, 5.0))
     for ax, (label, row) in zip(axes, picks):
         ax.set_title(f"{label}\n" + draw_case(ax, row["patient"], row, chosen), fontsize=9)
     fig.legend(handles=[plt.Line2D([], [], color=DOCTOR, lw=1.8, label="Doctors' outline"),
                         plt.Line2D([], [], color=AI, lw=1.8, ls=(0, (4, 2)), label="AI outline")],
                loc="lower center", ncol=2, frameon=False)
     fig.suptitle("AI tumour outlines on test patients the model never saw (T1 MRI with contrast)")
-    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.tight_layout(rect=(0, 0.05, 1, 0.93))
     fig.savefig(RESULTS / "segmentation_cases.png", dpi=110)
     plt.close(fig)
     print(f"  saved {RESULTS / 'segmentation_cases.png'}")

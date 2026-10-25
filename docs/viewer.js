@@ -24,6 +24,13 @@ function showFacts(p) {
     ["Mean cochlea dose", p.cochlea_mean_gy == null ? "cochlea not outlined" : `${fmt(p.cochlea_mean_gy, 2)} Gy`],
     ["Tumour to cochlea", p.gap_mm == null ? "-" : `${fmt(p.gap_mm)} mm`],
   ];
+  if (p.ai) {
+    facts.push(
+      ["AI outline against the doctors' (Dice)", fmt(p.ai.dice, 3)],
+      ["Tumour volume, doctors' T1 / AI outline", `${fmt(p.ai.doctor_t1_cc, 2)} / ${fmt(p.ai.tumour_cc, 2)} cc`],
+      ["Coverage, doctors' T1 / AI outline", `${fmt(100 * p.ai.doctor_t1_coverage)} / ${fmt(100 * p.ai.coverage)}%`],
+    );
+  }
   $("facts").replaceChildren(...facts.flatMap(([k, v]) => {
     const dt = document.createElement("dt");
     dt.textContent = k;

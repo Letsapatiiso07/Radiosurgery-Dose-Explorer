@@ -39,6 +39,7 @@ h2:first-child { margin-top: 0; }
 .key.cyan { color: #0891b2; }
 .key.yellow { color: #ca8a04; }
 .key.blue { color: #3b82f6; }
+.key.pink { color: #d946ef; }
 
 .layout {
   display: grid;
