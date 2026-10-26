@@ -422,13 +422,6 @@ AI's too), isodose lines, dose-volume histograms and plan numbers. Serve the fol
 
 ![Dose-volume histogram](results/dvh_example.png)
 
-## What I learned
-
-[FILL IN: two or three sentences in your own words, once you have worked
-through the code. For example: why the gap to the cochlea matters so much,
-what the gradient index tells you that coverage does not, or why one large
-dose is biologically different from many small ones.]
-
 ## Project layout
 
 ```
